@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Environment=NODE_ENV=production
 Type=simple
-User=jason
+User=jasondoze
 WorkingDirectory=/home/jasondoze/nameless/
 ExecStart=/usr/bin/npm start 
 Restart=on-failure
