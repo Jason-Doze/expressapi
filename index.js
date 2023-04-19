@@ -56,6 +56,6 @@ app.get('/joke', async (req, res) => {
 });
 
 // Start the server and listen on port 3000
-app.listen(3000, () => {
+app.listen(3000, 'localhost', () => {
   console.log('API running on port 3000');
 });
