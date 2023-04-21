@@ -56,7 +56,7 @@ app.get('/joke', async (req, res) => {
 });
 
 // Start the server and listen on all available network interfaces on port 3000
-app.listen(3000, '0.0.0.0', () => {
+app.listen(3000, () => {
   console.log('API running on port 3000');
 });
 
