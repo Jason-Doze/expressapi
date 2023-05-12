@@ -30,7 +30,7 @@ app.get('/favicon.ico', (req, res) => {
   });
 });
 
-// Define a new HTTP GET endpoint at /joke
+// Define a new HTTP GET endpoint at /api
 app.get('/api', async (req, res) => {
   try {
     const response = await fetch('https://api.chucknorris.io/jokes/random');
