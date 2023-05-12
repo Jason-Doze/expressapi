@@ -7,7 +7,7 @@ function reloadJoke() {
   fetch('/api/joke')
     .then(response => response.json())
     .then(data => {
-      jokeElement.innerHTML = data.joke; // use data.joke as response is now JSON
+      jokeElement.innerHTML = data.joke;
     });
 }
 
