@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.static('public'));
 
 // Define a new HTTP GET endpoint at /joke for the joke data
-app.get('/joke', async (req, res) => {
+app.get('/api/joke', async (req, res) => {
   try {
     const response = await fetch('https://api.chucknorris.io/jokes/random');
     const data = await response.json();
