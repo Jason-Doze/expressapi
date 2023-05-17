@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import fetch from 'node-fetch';
 import path from 'path';
+const port = 3001;
 
 const app = express();
 
@@ -24,7 +25,7 @@ app.get('/api/joke', async (req, res) => {
   }
 });
 
-app.listen(3001, () => {
+app.listen(port, () => {
   console.log('API running on port 3001');
 });
 
