@@ -14,7 +14,7 @@ const app = express();
 app.use(cors());
 
 // Set up a middleware to serve static files from the public folder
-app.use('/api', express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Define a new HTTP GET endpoint at /api/joke for the joke data
