@@ -2,19 +2,15 @@ import express from 'express';
 import cors from 'cors';
 import fetch from 'node-fetch';
 import path from 'path';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 const port = 3001;
-
 const app = express();
 
 // Enable CORS requests
 app.use(cors());
 
-// Set up a middleware to serve static files from the public folder
-app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.resolve('public'))); 
+
 
 // Define a new HTTP GET endpoint at /joke for the joke data
 app.get('/joke', async (req, res) => {
@@ -30,5 +26,6 @@ app.get('/joke', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('API running on port 3001');
+  console.log(`API running on port ${port}`);
 });
+
