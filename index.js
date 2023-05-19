@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import fetch from 'node-fetch';
-import path from 'path';
+import { readFile } from 'fs/promises'; // Available from Node.js v14.0.0
 
 const app = express();
 const port = 3001;
@@ -9,23 +8,21 @@ const port = 3001;
 // Enable CORS requests
 app.use(cors());
 
-app.use('/', express.static(path.resolve('public'))); 
+// Set up a middleware to serve static files from the public folder
+app.use(express.static('public'));
 
+// Serve the favicon
+app.get('/favicon.ico', async (req, res) => {
+  const faviconPath = './public/images/favicon.ico';
 
-// Define a new HTTP GET endpoint at /joke for the joke data
-app.get('/api/joke', async (req, res) => {
   try {
-    const response = await fetch('https://api.chucknorris.io/jokes/random');
-    const data = await response.json();
-    const joke = data.value;
-    res.json({ joke });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Something went wrong');
+    const data = await readFile(faviconPath);
+    res.set('Content-Type', 'image/x-icon');
+    res.send(data);
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(404);
   }
 });
 
-app.listen(port, () => {
-  console.log(`API running on port ${port}`);
-});
-
+app.listen(port, () => console.log(`Server running on port ${port}`));
