@@ -3,8 +3,8 @@ import cors from 'cors';
 import fetch from 'node-fetch';
 import path from 'path';
 
-const port = 3001;
 const app = express();
+const port = 3001;
 
 // Enable CORS requests
 app.use(cors());
