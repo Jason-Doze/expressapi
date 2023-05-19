@@ -4,7 +4,7 @@ function reloadJoke() {
   console.log('Reload button clicked!');
   const jokeElement = document.getElementById('joke');
   jokeElement.innerHTML = 'Loading...';
-  fetch('/joke')
+  fetch('/api/joke')
     .then(response => response.json())
     .then(data => {
       jokeElement.innerHTML = data.joke;
